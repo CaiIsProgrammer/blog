@@ -36,6 +36,10 @@ const styles = theme => ({
   iconSmall: {
     fontSize: 20,
   },
+  section: {
+    display: "flex",
+    flexFlow: "row wrap",
+  },
 })
 
 class OutlinedTextFields extends React.Component {
@@ -71,10 +75,35 @@ class OutlinedTextFields extends React.Component {
           margin="normal"
           variant="outlined"
         />
-        <Button variant="contained" color="default" className={classes.button}>
-          Upload
-          <CloudUploadIcon className={classes.rightIcon} />
-        </Button>
+        <section>
+          <input
+            accept="image/*"
+            className={classes.input}
+            style={{ display: "none" }}
+            id="raised-button-file"
+            multiple
+            type="file"
+          />
+          <label htmlFor="raised-button-file">
+            <Button
+              variant="contained"
+              component="span"
+              className={classes.button}
+            >
+              Upload File
+              <CloudUploadIcon className={classes.rightIcon} />
+            </Button>
+          </label>
+
+          <Button
+            variant="contained"
+            color="default"
+            className={classes.button}
+          >
+            Upload Post
+            <CloudUploadIcon className={classes.rightIcon} />
+          </Button>
+        </section>
       </form>
     )
   }
