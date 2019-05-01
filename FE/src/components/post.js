@@ -17,7 +17,7 @@ const styles = {
     margin: 10,
   },
   media: {
-    height: 140,
+    height: 150,
   },
 }
 
@@ -28,16 +28,14 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://www.gannett-cdn.com/-mm-/487e45eb3deb72e80a2e8854ede1c881d56bcfcb/c=0-105-2125-1306/local/-/media/2018/03/13/USATODAY/USATODAY/636565439512580964-GettyImages-500798391.jpg?width=3200&height=1680&fit=crop"
+          image={props.pImage}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {props.pName}
           </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles.
-          </Typography>
+          <Typography component="p">{props.pPost}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions />

@@ -3,6 +3,7 @@ import SidePost from "../components/sidepost"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Post from "../components/postGroup"
+import MPost from "../components/mPost"
 import Banner from "../components/banner"
 
 import "./index.css"
@@ -16,7 +17,7 @@ const IndexPage = () => (
         </div>
         <div className="laycolmid">
           <Banner />
-          <Post />
+          <MPost />
         </div>
         <div className="laycolRight">
           <SidePost />
