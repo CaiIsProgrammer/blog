@@ -11,8 +11,7 @@ import Typography from "@material-ui/core/Typography"
 
 const styles = {
   card: {
-    minWidth: 125,
-    maxWidth: 250,
+    width: 250,
     height: 275,
     margin: 10,
   },

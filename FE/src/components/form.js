@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField"
 import CloudUploadIcon from "@material-ui/icons/CloudUpload"
 import Button from "@material-ui/core/Button"
 import Icon from "@material-ui/core/Icon"
+const axios = require("axios")
 
 const styles = theme => ({
   container: {
@@ -43,12 +44,52 @@ const styles = theme => ({
 })
 
 class OutlinedTextFields extends React.Component {
-  state = {}
+  state = { name: "", email: "", picture: "", post: "" }
 
-  handleChange = name => event => {
+  handleEmailChange = event => {
     this.setState({
-      [name]: event.target.value,
+      email: event.target.value,
     })
+  }
+  handleNameChange = event => {
+    this.setState({
+      name: event.target.value,
+    })
+  }
+  handlePostChange = event => {
+    this.setState({
+      post: event.target.value,
+    })
+  }
+
+  fileSelecedHandler = event => {
+    console.log(event.target.files)
+    this.setState({
+      picture: event.target.files[0],
+    })
+  }
+
+  fileUploadHandler = () => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+
+    let fd = new FormData()
+    fd.append("name", this.state.name)
+    fd.append("email", this.state.email)
+    fd.append("PostImage", this.state.picture)
+    fd.append("post", this.state.post)
+
+    axios
+      .post("http://localhost:3000/api/posts/", fd, config)
+      .then(res => {
+        return console.log(res)
+      })
+      .catch(res => {
+        return console.log(res)
+      })
   }
 
   render() {
@@ -65,6 +106,18 @@ class OutlinedTextFields extends React.Component {
           autoComplete="email"
           margin="normal"
           variant="outlined"
+          onChange={this.handleEmailChange}
+        />
+        <TextField
+          id="outlined-email-input"
+          label="full name"
+          className={classes.textField}
+          type="full name"
+          name="name"
+          autoComplete="name"
+          margin="normal"
+          variant="outlined"
+          onChange={this.handleNameChange}
         />
         <TextField
           id="outlined-multiline-static"
@@ -74,6 +127,7 @@ class OutlinedTextFields extends React.Component {
           className={classes.textField}
           margin="normal"
           variant="outlined"
+          onChange={this.handlePostChange}
         />
         <section>
           <input
@@ -81,8 +135,8 @@ class OutlinedTextFields extends React.Component {
             className={classes.input}
             style={{ display: "none" }}
             id="raised-button-file"
-            multiple
             type="file"
+            onChange={this.fileSelecedHandler}
           />
           <label htmlFor="raised-button-file">
             <Button
@@ -99,6 +153,7 @@ class OutlinedTextFields extends React.Component {
             variant="contained"
             color="default"
             className={classes.button}
+            onClick={this.fileUploadHandler}
           >
             Upload Post
             <CloudUploadIcon className={classes.rightIcon} />
