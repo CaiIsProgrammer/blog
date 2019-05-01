@@ -8,6 +8,7 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload"
 import Button from "@material-ui/core/Button"
 import Icon from "@material-ui/core/Icon"
 import { Link } from "gatsby"
+import { navigate } from "@reach/router"
 const axios = require("axios")
 
 const styles = theme => ({
@@ -86,6 +87,7 @@ class OutlinedTextFields extends React.Component {
     axios
       .post("http://165.22.15.56:3000/api/posts/", fd, config)
       .then(res => {
+        navigate("/")
         return console.log(res)
       })
       .catch(res => {
@@ -156,14 +158,6 @@ class OutlinedTextFields extends React.Component {
             className={classes.button}
             onClick={this.fileUploadHandler}
           >
-            <Link
-              to="/"
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-                display: "none",
-              }}
-            />
             Upload Post
             <CloudUploadIcon className={classes.rightIcon} />
           </Button>

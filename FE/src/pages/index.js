@@ -20,8 +20,8 @@ const IndexPage = () => (
         <div className="laycolmid">
           <Banner />
           <MPost />
-          <MPost />
-          <MPost />
+          <MPost2 />
+          <MPost3 />
         </div>
         <div className="laycolRight">
           <SidePost />
