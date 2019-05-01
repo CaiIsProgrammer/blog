@@ -81,7 +81,7 @@ router.post("/", upload.single("PostImage"), async (req, res) => {
     name: req.body.name,
     email: req.body.email,
     date: Date.now(),
-    postImg: `http://localhost:3000/posts/${req.file.originalname}`,
+    postImg: `http://165.22.15.56:3000/posts/${req.file.originalname}`,
     post: req.body.post
   });
   post = await post.save();
