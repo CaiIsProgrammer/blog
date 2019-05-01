@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Post from "../components/postGroup"
 import MPost from "../components/mPost"
+import MPost2 from "../components/mPost2"
+import MPost3 from "../components/mPost3"
 import Banner from "../components/banner"
 
 import "./index.css"
@@ -17,6 +19,8 @@ const IndexPage = () => (
         </div>
         <div className="laycolmid">
           <Banner />
+          <MPost />
+          <MPost />
           <MPost />
         </div>
         <div className="laycolRight">

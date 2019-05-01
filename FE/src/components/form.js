@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField"
 import CloudUploadIcon from "@material-ui/icons/CloudUpload"
 import Button from "@material-ui/core/Button"
 import Icon from "@material-ui/core/Icon"
+import { Link } from "gatsby"
 const axios = require("axios")
 
 const styles = theme => ({
@@ -144,7 +145,7 @@ class OutlinedTextFields extends React.Component {
               component="span"
               className={classes.button}
             >
-              Upload File
+              Upload Image File
               <CloudUploadIcon className={classes.rightIcon} />
             </Button>
           </label>
@@ -155,6 +156,14 @@ class OutlinedTextFields extends React.Component {
             className={classes.button}
             onClick={this.fileUploadHandler}
           >
+            <Link
+              to="/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+                display: "none",
+              }}
+            />
             Upload Post
             <CloudUploadIcon className={classes.rightIcon} />
           </Button>
