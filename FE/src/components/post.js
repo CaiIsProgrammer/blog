@@ -12,7 +12,7 @@ import Typography from "@material-ui/core/Typography"
 const styles = {
   card: {
     width: 250,
-    height: 275,
+    height: 350,
     margin: 10,
   },
   media: {
