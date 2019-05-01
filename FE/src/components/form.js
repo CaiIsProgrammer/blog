@@ -83,7 +83,7 @@ class OutlinedTextFields extends React.Component {
     fd.append("post", this.state.post)
 
     axios
-      .post("http://localhost:3000/api/posts/", fd, config)
+      .post("http://165.22.15.56/api/posts/", fd, config)
       .then(res => {
         return console.log(res)
       })
