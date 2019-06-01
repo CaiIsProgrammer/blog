@@ -7,7 +7,7 @@ import MPost from "../components/mPost"
 import MPost2 from "../components/mPost2"
 import MPost3 from "../components/mPost3"
 import Banner from "../components/banner"
-
+import adspace from "../images/adspace"
 import "./index.css"
 const IndexPage = () => (
   <Layout>
@@ -24,9 +24,21 @@ const IndexPage = () => (
           <MPost3 />
         </div>
         <div className="laycolRight">
-          <SidePost />
-          <SidePost />
-          <SidePost />
+          <SidePost
+            img={adspace}
+            title="This is an AD"
+            body="this can be used for ads"
+          />{" "}
+          <SidePost
+            img={adspace}
+            title="This is an AD"
+            body="this can be used for ads"
+          />
+          <SidePost
+            img={adspace}
+            title="This is an AD"
+            body="this can be used for ads"
+          />
         </div>
       </div>
     </mdiv>

@@ -110,6 +110,7 @@ class OutlinedTextFields extends React.Component {
           margin="normal"
           variant="outlined"
           onChange={this.handleEmailChange}
+          required="true"
         />
         <TextField
           id="outlined-email-input"
@@ -121,6 +122,7 @@ class OutlinedTextFields extends React.Component {
           margin="normal"
           variant="outlined"
           onChange={this.handleNameChange}
+          required="true"
         />
         <TextField
           id="outlined-multiline-static"
@@ -131,6 +133,7 @@ class OutlinedTextFields extends React.Component {
           margin="normal"
           variant="outlined"
           onChange={this.handlePostChange}
+          required="true"
         />
         <section>
           <input
@@ -146,6 +149,7 @@ class OutlinedTextFields extends React.Component {
               variant="contained"
               component="span"
               className={classes.button}
+              required="true"
             >
               Upload Image File
               <CloudUploadIcon className={classes.rightIcon} />
@@ -158,7 +162,7 @@ class OutlinedTextFields extends React.Component {
             className={classes.button}
             onClick={this.fileUploadHandler}
           >
-            Upload Post
+            Post
             <CloudUploadIcon className={classes.rightIcon} />
           </Button>
         </section>

@@ -27,16 +27,14 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://thumbs-prod.si-cdn.com/yWWH1nprqD5BY8wd7s5SCPxUYJU=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/bf/4e/bf4ec3eb-669f-4a1d-87ad-dd83f81c384d/4694899147_fcd4b69350_o.jpg"
-          title="Contemplative Reptile"
+          image={this.props.img}
+          title="ad space"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            goldfish
+            {this.props.title}
           </Typography>
-          <Typography component="p">
-            Goldfish are cooler thank you think
-          </Typography>
+          <Typography component="p">{this.props.body}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions />

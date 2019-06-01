@@ -35,7 +35,7 @@ const Header = ({ siteTitle }) => (
               textDecoration: `none`,
             }}
           >
-            About
+            Post
           </Link>
           <Link
             to="/404"
