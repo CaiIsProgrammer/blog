@@ -1,102 +1,96 @@
-import React from "react"
-import PropTypes from "prop-types"
-import classNames from "classnames"
-import { withStyles } from "@material-ui/core/styles"
-import MenuItem from "@material-ui/core/MenuItem"
-import TextField from "@material-ui/core/TextField"
-import CloudUploadIcon from "@material-ui/icons/CloudUpload"
-import Button from "@material-ui/core/Button"
-import Icon from "@material-ui/core/Icon"
-import { Link } from "gatsby"
-import { navigate } from "@reach/router"
-const axios = require("axios")
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 const styles = theme => ({
   container: {
     display: "flex",
 
-    flexFlow: "column wrap",
+    flexFlow: "column wrap"
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
   },
   dense: {
-    marginTop: 16,
+    marginTop: 16
   },
   menu: {
-    width: 200,
+    width: 200
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1)
   },
   leftIcon: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1)
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(1)
   },
   iconSmall: {
-    fontSize: 20,
+    fontSize: 20
   },
   section: {
     display: "flex",
-    flexFlow: "row wrap",
-  },
-})
+    flexFlow: "row wrap"
+  }
+});
 
 class OutlinedTextFields extends React.Component {
-  state = { name: "", email: "", picture: "", post: "" }
+  state = { name: "", email: "", picture: "", post: "" };
 
   handleEmailChange = event => {
     this.setState({
-      email: event.target.value,
-    })
-  }
+      email: event.target.value
+    });
+  };
   handleNameChange = event => {
     this.setState({
-      name: event.target.value,
-    })
-  }
+      name: event.target.value
+    });
+  };
   handlePostChange = event => {
     this.setState({
-      post: event.target.value,
-    })
-  }
+      post: event.target.value
+    });
+  };
 
   fileSelecedHandler = event => {
-    console.log(event.target.files)
+    console.log(event.target.files);
     this.setState({
-      picture: event.target.files[0],
-    })
-  }
+      picture: event.target.files[0]
+    });
+  };
 
   fileUploadHandler = () => {
     let config = {
       headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }
+        "Content-Type": "multipart/form-data"
+      }
+    };
 
-    let fd = new FormData()
-    fd.append("name", this.state.name)
-    fd.append("email", this.state.email)
-    fd.append("PostImage", this.state.picture)
-    fd.append("post", this.state.post)
+    let fd = new FormData();
+    fd.append("name", this.state.name);
+    fd.append("email", this.state.email);
+    fd.append("PostImage", this.state.picture);
+    fd.append("post", this.state.post);
 
     axios
-      .post("http://165.22.15.56:3000/api/posts/", fd, config)
+      .post("http://blog.crunchycode.me:3000/api/posts/", fd, config)
       .then(res => {
-        navigate("/")
-        return console.log(res)
+        this.props.history.push("/");
       })
       .catch(res => {
-        return console.log(res)
-      })
-  }
+        return console.log(res);
+      });
+  };
 
   render() {
-    const { classes } = this.props
+    const { classes } = this.props;
 
     return (
       <form className={classes.container} noValidate autoComplete="off">
@@ -167,12 +161,8 @@ class OutlinedTextFields extends React.Component {
           </Button>
         </section>
       </form>
-    )
+    );
   }
 }
 
-OutlinedTextFields.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(OutlinedTextFields)
+export default withStyles(styles)(OutlinedTextFields);
